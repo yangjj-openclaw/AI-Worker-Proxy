@@ -27,13 +27,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.13.0'
+          node-version: '22'
           cache: 'pnpm'
 
-      - name: Install dependencies and approve builds
-        run: pnpm install
-        env:
-          PNPM_APPROVE_BUILDS: "esbuild@0.27.3 protobufjs@7.5.4 sharp@0.34.5 workerd@1.20260317.1"
+      - name: Install dependencies
+        run: |
+          pnpm install --ignore-scripts
 
       - name: Run ESLint
         run: pnpm run lint
@@ -70,11 +69,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install --ignore-scripts
 
       - name: Replace ROUTES_CONFIG in wrangler.toml
         env:
