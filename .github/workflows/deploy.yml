@@ -30,7 +30,7 @@ jobs:
           node-version: '22.13.0'
           cache: 'pnpm'
 
-      - name: Install dependencies
+      - name: Install dependencies and approve builds
         run: | 
           pnpm install
           pnpm approve-builds --yes
