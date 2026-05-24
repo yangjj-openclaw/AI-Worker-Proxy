@@ -31,7 +31,9 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: | 
+          pnpm install
+          pnpm approve-builds --yes
 
       - name: Run ESLint
         run: pnpm run lint
