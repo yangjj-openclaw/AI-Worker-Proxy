@@ -31,9 +31,9 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies and approve builds
-        run: | 
-          pnpm install
-          pnpm approve-builds --yes
+        run: pnpm install
+        env:
+          PNPM_APPROVE_BUILDS: "esbuild@0.27.3 protobufjs@7.5.4 sharp@0.34.5 workerd@1.20260317.1"
 
       - name: Run ESLint
         run: pnpm run lint
